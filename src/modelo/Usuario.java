@@ -22,4 +22,8 @@ public class Usuario implements Serializable {
     public String getPasswordHash() {
         return passwordHash;
     }
+
+    public ArrayList<Nota> getNotas() {
+        return notas;
+    }
 }
