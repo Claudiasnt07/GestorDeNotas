@@ -26,4 +26,8 @@ public class Usuario implements Serializable {
     public ArrayList<Nota> getNotas() {
         return notas;
     }
+
+    public void setNotas(ArrayList<Nota> notas) {
+        this.notas = notas;
+    }
 }
