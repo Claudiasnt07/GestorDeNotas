@@ -6,6 +6,6 @@ import util.HashUtil;
 import javax.swing.*;
 import java.util.ArrayList;
 
-public class Registro {
+public class Registro extends JFrame {
     
 }
