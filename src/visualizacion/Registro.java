@@ -7,5 +7,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class Registro extends JFrame {
+    private JTextField txtUsuario;
+    private JPasswordField txtJPassword;
     
 }
