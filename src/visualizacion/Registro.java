@@ -41,6 +41,44 @@ public class Registro extends JFrame {
                 e -> registrar()
         );
     }
-    
+
+    private void registrar() {
+        String nombre =
+                txtUsuario.getText();
+        String password =
+                new String(txtPassword.getPassword());
+
+        ArrayList<Usuario> usuarios =
+                GestorFicheros.cargarUsuarios();
+
+        for (Usuario u : usuarios) {
+            if (u.getNombre().equals(nombre)) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "El usuario ya existe"
+                );
+                return;
+            }
+        }
+
+        String hash =
+                HashUtil.hash(password);
+        
+        usuarios.add(
+                new Usuario(nombre, hash)
+        );
+
+        GestorFicheros.guardarUsuarios(
+                usuarios
+        );
+
+        JOptionPane.showMessageDialog(
+                this,
+                "El usuario ha sido registrado"
+        );
+
+        dispose();
+    }
+
 
 }
