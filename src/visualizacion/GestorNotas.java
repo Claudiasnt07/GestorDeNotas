@@ -139,4 +139,28 @@ public class GestorNotas {
                 "Nota editada"
         );
     }
+
+    private void eliminarNota() {
+        Nota nota = listaNotas.getSelectedValue();
+
+        if (nota == null) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Selecciona una nota"
+            );
+
+            return;
+        }
+
+        notas.remove(nota);
+        modeloLista.removeElement(nota);
+
+        limpiarCampos();
+
+        JOptionPane.showMessageDialog(
+                this,
+                "Nota eliminada"
+        );
+    }
 }
