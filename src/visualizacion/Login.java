@@ -11,4 +11,12 @@ public class Login {
     private JTextField txtUsuario;
     private JPasswordField txtPassword;
 
+    public Login() {
+        setTitle("Login");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        initComponents();
+    }
+
 }
