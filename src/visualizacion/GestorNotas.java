@@ -11,4 +11,6 @@ public class GestorNotas {
 
     private JList<Nota> listaNotas;
     private DefaultListModel<Nota> modelo;
+
+    private ArrayList<Nota> notas;
 }
