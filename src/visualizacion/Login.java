@@ -53,4 +53,34 @@ public class Login {
         });
     }
 
+    private void login() {
+        String usuario =
+            txtUsuario.getText();
+
+        String password =
+            new String(txtPassword.getPassword());
+
+        String hash =
+            HashUtil.hash(password);
+        
+        ArrayList<Usuario> usuarios =
+            GestorFicheros.cargarUsuarios();
+
+        for (Usuario u : usuarios) {
+            if (u.getNombre().equals(usuarios)
+                    && u.getPasswordHash().equals(hash)) {
+                
+                new GestorNotas(u)
+                        .setVisible(true);    
+                dispose();
+                return;
+            }
+        }
+
+        JOptionPane.showMessageDialog(
+                this,
+                "ERROR"
+        );
+    }
+
 }
