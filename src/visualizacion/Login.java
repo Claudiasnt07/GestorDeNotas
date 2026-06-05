@@ -3,20 +3,23 @@ package visualizacion;
 import modelo.Usuario;
 import persistencia.GestorFicheros;
 import util.HashUtil;
+
 import javax.swing.*;
 import java.util.ArrayList;
 
-public class Login {
-    
+public class Login extends JFrame {
+
     private JTextField txtUsuario;
     private JPasswordField txtPassword;
 
     public Login() {
         setTitle("Login");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
         initComponents();
+
+        pack();
     }
 
     private void initComponents() {
@@ -48,30 +51,23 @@ public class Login {
             registro.setVisible(true);
         });
 
-        btnLogin.addActionListener(e -> {
-            login();
-        });
+        btnLogin.addActionListener(e -> login());
     }
 
     private void login() {
-        String usuario =
-            txtUsuario.getText();
+        String usuario = txtUsuario.getText();
 
-        String password =
-            new String(txtPassword.getPassword());
+        String password = new String(txtPassword.getPassword());
 
-        String hash =
-            HashUtil.hash(password);
-        
-        ArrayList<Usuario> usuarios =
-            GestorFicheros.cargarUsuarios();
+        String hash = HashUtil.hash(password);
+
+        ArrayList<Usuario> usuarios = GestorFicheros.cargarUsuarios();
 
         for (Usuario u : usuarios) {
-            if (u.getNombre().equals(usuarios)
+            if (u.getNombre().equals(usuario)
                     && u.getPasswordHash().equals(hash)) {
-                
-                new GestorNotas(u)
-                        .setVisible(true);    
+
+                new GestorNotas(u).setVisible(true);
                 dispose();
                 return;
             }
@@ -79,8 +75,9 @@ public class Login {
 
         JOptionPane.showMessageDialog(
                 this,
-                "ERROR"
+                "Usuario o contraseña incorrectos",
+                "Error",
+                JOptionPane.ERROR_MESSAGE
         );
     }
-
 }
