@@ -18,4 +18,8 @@ public class Usuario implements Serializable {
     public String getNombre() {
         return nombre;
     }
+
+    public String getPasswordHash() {
+        return passwordHash;
+    }
 }
