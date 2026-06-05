@@ -5,5 +5,6 @@ import java.util.ArrayList;
 import modelo.Usuario;
 
 public class GestorFicheros {
-    
+
+    private static final String ARCHIVO_USUARIOS = "usuarios.txt";
 }
