@@ -115,4 +115,28 @@ public class GestorNotas {
                     nota.getContenido());
         }
     }
+
+    private void editarNota() {
+        Nota nota = listaNotas.getSelectedValue();
+
+        if (nota == null) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Selecciona una nota"
+            );
+
+            return;
+        }
+
+        nota.setTitulo(txtTitulo.getText());
+        nota.setContenido(txtContenido.getText());
+
+        listaNotas.repaint();
+
+        JOptionPane.showMessageDialog(
+                this,
+                "Nota editada"
+        );
+    }
 }
