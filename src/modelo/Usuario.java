@@ -14,4 +14,8 @@ public class Usuario implements Serializable {
         this.passwordHash = passwordHash;
         this.notas = new ArrayList<>();
     }
+
+    public String getNombre() {
+        return nombre;
+    }
 }
