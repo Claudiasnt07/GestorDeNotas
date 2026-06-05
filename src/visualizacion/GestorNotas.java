@@ -75,4 +75,31 @@ public class GestorNotas {
 
         listaNotas.addListSelectionListener(e -> mostrarNota());
     }
+
+    private void crearNota() {
+        String titulo = txtTitulo.getText();
+        String contenido = txtContenido.getText();
+
+        if (titulo.isEmpty()) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Introduce un título"
+            );
+
+            return;
+        }
+
+        Nota nota = new Nota(titulo, contenido);
+
+        notas.add(nota);
+        modeloLista.addElement(nota);
+
+        limpiarCampos();
+
+        JOptionPane.showMessageDialog(
+                this,
+                "La nota se ha creado correctamente"
+        );
+    }
 }
