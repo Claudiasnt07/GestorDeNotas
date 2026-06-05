@@ -163,4 +163,11 @@ public class GestorNotas {
                 "Nota eliminada"
         );
     }
+
+    private void limpiarCampos() {
+        txtTitulo.setText("");
+        txtContenido.setText("");
+
+        listaNotas.clearSelection();
+    }
 }
