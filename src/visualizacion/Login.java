@@ -8,4 +8,7 @@ import java.util.ArrayList;
 
 public class Login {
     
+    private JTextField txtUsuario;
+    private JPasswordField txtPassword;
+
 }
