@@ -19,4 +19,21 @@ public class GestorFicheros {
             e.printStackTrace();
         }
     }
+
+    public static ArrayList<Usuario> cargarUsuarios() {
+        File archivo = new File(ARCHIVO_USUARIOS);
+
+        if (!archivo.exists()) {
+            return new ArrayList<>();
+        }
+
+        try (ObjectInputStream ois =
+                    new ObjectInputStream(
+                            new FileInputStream(
+                                    ARCHIVO_USUARIOS))) {
+            return (ArrayList<Usuario>) ois.readObject();
+        } catch (Exception e) {
+            return new ArrayList<>();
+        }
+    }
 }
