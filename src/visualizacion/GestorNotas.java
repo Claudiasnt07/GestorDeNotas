@@ -40,11 +40,11 @@ public class GestorNotas extends JFrame {
         txtContenido = new JTextArea(5, 20);
         panel.add(new JScrollPane(txtContenido));
 
-        modeloLista = new DefaultListModel<>();
-        listaNotas = new JList<>(modeloLista);
+        modelo = new DefaultListModel<>();
+        listaNotas = new JList<>(modelo);
 
         for (Nota nota : notas) {
-            modeloLista.addElement(nota);
+            modelo.addElement(nota);
         }
 
         panel.add(new JScrollPane(listaNotas));
@@ -71,8 +71,6 @@ public class GestorNotas extends JFrame {
 
         btnLimpiar.addActionListener(e -> limpiarCampos());
 
-        btnBorrarTodo.addActionListener(e -> borrarTodas());
-
         listaNotas.addListSelectionListener(e -> mostrarNota());
     }
 
@@ -93,7 +91,7 @@ public class GestorNotas extends JFrame {
         Nota nota = new Nota(titulo, contenido);
 
         notas.add(nota);
-        modeloLista.addElement(nota);
+        modelo.addElement(nota);
 
         limpiarCampos();
 
@@ -154,7 +152,7 @@ public class GestorNotas extends JFrame {
         }
 
         notas.remove(nota);
-        modeloLista.removeElement(nota);
+        modelo.removeElement(nota);
 
         limpiarCampos();
 
