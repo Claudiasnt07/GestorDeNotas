@@ -102,4 +102,17 @@ public class GestorNotas {
                 "La nota se ha creado correctamente"
         );
     }
+
+    private void mostrarNota() {
+        Nota nota = listaNotas.getSelectedValue();
+
+        if (nota != null) {
+
+            txtTitulo.setText(
+                    nota.getTitulo());
+
+            txtContenido.setText(
+                    nota.getContenido());
+        }
+    }
 }
